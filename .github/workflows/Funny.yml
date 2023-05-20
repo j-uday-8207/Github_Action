@@ -9,6 +9,7 @@ on:
 jobs:
   print-Funny_Text:
     runs-on: ubuntu-latest
+    permissions : write-all
 
     steps:
     
@@ -22,3 +23,12 @@ jobs:
     
       - name: FunnyText
         run: node FunnyText.js
+      -  name: Comment contributor's name
+         uses: peter-evans/create-or-update-comment@v1
+         with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: "Thank you, for your pull request! We really appreciate your contribution to our project"
+          reactions: 'heart+1, hooray'
+          
+        
+      
