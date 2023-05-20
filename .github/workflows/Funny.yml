@@ -9,16 +9,33 @@ on:
 jobs:
   print-Funny_Text:
     runs-on: ubuntu-latest
+    permissions : write-all
 
     steps:
     
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         
       - name: node.js setup
-        uses : actions/setup-node@v1
+        uses : actions/setup-node@v3
         with :
-            node-version : '16'
+            node-version : '14'
     
       - name: FunnyText
         run: node FunnyText.js
+        
+        
+      - name: Get name
+        id: id_get
+        run: echo "::set-output name=name::${{ github.event.pull_request.user.login }}"
+      - name: Comment id's name
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: 'Thank you, ${{ steps.id_get.outputs.name }}, Yayy!! You are just few hundred minutes away to get a degree for waiting... \n\n <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fmeme&psig=AOvVaw1phSgz6SJL_2afnkHPClz_&ust=1684695284513000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKi3r4_JhP8CFQAAAAAdAAAAABAE" alt = "Funny" /> '
+          
+          
+    env:
+       PR_NUMBER: ${{ github.event.number }}      
+      
+  
