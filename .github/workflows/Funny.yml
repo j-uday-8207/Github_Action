@@ -22,6 +22,19 @@ jobs:
             node-version : '14'
     
       - name: FunnyText
-        run: echo node FunnyText.js
+        run: node FunnyText.js
+        
+      - name: Get contributor's name
+        id: get_contributor
+        run: echo "::set-output name=name::${{ github.event.pull_request.user.login }}"
+      - name: Comment contributor's name
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: "Thank you, ${{ steps.get_contributor.outputs.name }}, for your pull request! We really appreciate your contribution to our project"
+          reactions: 'heart+1, hooray'
+          
+    env:
+       PR_NUMBER: ${{ github.event.number }}      
       
   
