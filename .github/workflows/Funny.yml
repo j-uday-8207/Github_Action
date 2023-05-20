@@ -27,7 +27,7 @@ jobs:
          uses: peter-evans/create-or-update-comment@v1
          with:
           issue-number: ${{ github.event.pull_request.number }}
-          body: "Thank you, for your pull request! We really appreciate your contribution to our project"
+          body: node FunnyText.js
           reactions: 'heart+1, hooray'
           
         
