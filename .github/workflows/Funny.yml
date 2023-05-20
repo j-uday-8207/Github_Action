@@ -23,12 +23,14 @@ jobs:
     
       - name: FunnyText
         run: node FunnyText.js
-      -  name: Comment contributor's name
-         uses: peter-evans/create-or-update-comment@v1
-         with:
-          issue-number: ${{ github.event.pull_request.number }}
-          body: node FunnyText.js
-          reactions: 'heart+1, hooray'
+      - name: Build website
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
           
         
       
