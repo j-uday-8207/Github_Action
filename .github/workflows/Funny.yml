@@ -22,7 +22,6 @@ jobs:
             node-version : '14'
     
       - name: FunnyText
-        run:  node FunnyText.js
+        run: echo node FunnyText.js
       
-      - name: output
-        run : echo " ${{steps.FunnyText.outputs}};
+  
