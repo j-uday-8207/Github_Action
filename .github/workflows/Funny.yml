@@ -21,4 +21,4 @@ jobs:
             node-version : '16'
     
       - name: FunnyText
-        run: node Github_Action/FunnyText.js
+        run: node FunnyText.js
