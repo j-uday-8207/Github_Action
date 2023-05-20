@@ -1,0 +1,23 @@
+name : FunnY TexT Printer on a PR
+
+on: 
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  print-Funny_Text:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      
+        
+      - name: node.js setup
+        uses : actions/setup-node@v1
+        with :
+            node-version : '16'
+    
+      - name: FunnyText
+        run: FunnyText.js
