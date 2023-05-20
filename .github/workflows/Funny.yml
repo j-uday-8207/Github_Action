@@ -32,7 +32,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body: 'Thank you, ${{ steps.id_get.outputs.name }}, Yayy!! You are just few hundred minutes away to get a degree for waiting... \n\n <img src="image.jpeg" alt = "Funny" /> '
+          body: 'Thank you, ${{ steps.id_get.outputs.name }}, Yayy!! You are just few hundred minutes away to get a degree for waiting... \n\n <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg" alt = "Funny" /> '
           
           
     env:
