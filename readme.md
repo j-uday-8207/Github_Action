@@ -9,4 +9,4 @@ Branch : BSBE
 
 
 
-This Is a Github Action Repo... It Just Prints Funny Text (Acoording To Me) during a PR.
+This Is a Github Action Repo... It Just Prints Funny Text (According To Me) during a PR.
